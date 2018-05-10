@@ -26,6 +26,7 @@ body {
 }
 
 #bar {
+	z-index: 5;
 	text-align: center;
 	background-color: #ccc;
 	position: fixed; 
@@ -73,11 +74,12 @@ body {
 }
 
 #minimap {
-	position: fixed;
+	z-index: 1;
+	position: absolute;
 	width: 100px;
 	height: 100px;
-	right: 0px;
-	bottom: 0px;
+	right: 20px;
+	bottom: 20px;
 	background-color: #fff;
 	border: 1px solid #000;
 	opacity: 0.9;

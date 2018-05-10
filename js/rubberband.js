@@ -5,12 +5,15 @@ SQL.Rubberband = function(owner) {
 	SQL.Visual.apply(this);
 	this.dom.container = OZ.$("rubberband");
 	OZ.Event.add("area", "mousedown", this.down.bind(this));
+
+	this.board = document.getElementById('board'); //the board container of minimap
 }
 SQL.Rubberband.prototype = Object.create(SQL.Visual.prototype);
 
 SQL.Rubberband.prototype.down = function(e) {
 	OZ.Event.prevent(e);
-	var scroll = OZ.DOM.scroll();
+	//var scroll = OZ.DOM.scroll();
+	var scroll = [this.board.scrollLeft,this.board.scrollTop];
 	this.x = this.x0 = e.clientX + scroll[0];
 	this.y = this.y0 = e.clientY + scroll[1];
 	this.width = 0;
@@ -21,7 +24,8 @@ SQL.Rubberband.prototype.down = function(e) {
 }
 
 SQL.Rubberband.prototype.move = function(e) {
-	var scroll = OZ.DOM.scroll();
+	//var scroll = OZ.DOM.scroll();
+	var scroll = [this.board.scrollLeft,this.board.scrollTop];	
 	var x = e.clientX + scroll[0];
 	var y = e.clientY + scroll[1];
 	this.width = Math.abs(x-this.x0);
@@ -41,8 +45,11 @@ SQL.Rubberband.prototype.up = function(e) {
 }
 
 SQL.Rubberband.prototype.redraw = function() {
-	this.dom.container.style.left = this.x+"px";
-	this.dom.container.style.top = this.y+"px";
+	var x = this.x - this.board.scrollLeft;
+	var y = this.y - this.board.scrollTop;
+
+	this.dom.container.style.left = x+"px";
+	this.dom.container.style.top = y+"px";
 	this.dom.container.style.width = this.width+"px";
 	this.dom.container.style.height = this.height+"px";
 }

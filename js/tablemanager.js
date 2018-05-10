@@ -9,6 +9,7 @@ SQL.TableManager = function(owner) {
 	};
 	this.selection = [];
 	this.adding = false;
+	this.board = document.getElementById('board');
 	
 	var ids = ["addtable","removetable","aligntables","cleartables","addrow","edittable","tablekeys"];
 	for (var i=0;i<ids.length;i++) {
@@ -98,6 +99,11 @@ SQL.TableManager.prototype.processSelection = function() {
 }
 
 SQL.TableManager.prototype.selectRect = function(x,y,width,height) { /* select all tables intersecting a rectangle */
+
+	console.log({x:x,y:y,width:width,height,height});
+	x = x - $('#board').offset().left;
+	y = y - $('#board').offset().top;
+
 	this.selection = [];
 	var tables = this.owner.tables;
 	var x1 = x+width;
@@ -121,9 +127,13 @@ SQL.TableManager.prototype.click = function(e) { /* finish adding new table */
 		this.adding = false;
 		OZ.DOM.removeClass("area","adding");
 		this.dom.addtable.value = this.oldvalue;
-		var scroll = OZ.DOM.scroll();
+		//var scroll = OZ.DOM.scroll();
+		var scroll = [this.board.scrollLeft,this.board.scrollTop];
+
 		var x = e.clientX + scroll[0];
 		var y = e.clientY + scroll[1];
+		x = x - $('#board').offset().left;
+		y = y - $('#board').offset().top;
 		newtable = this.owner.addTable(_("newtable"),x,y);
 		var r = newtable.addRow("id",{ai:true});
 		var k = newtable.addKey("PRIMARY","");

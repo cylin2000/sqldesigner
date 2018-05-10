@@ -60,6 +60,6 @@ var SQL = {
 	}
 }
 
-window.onbeforeunload = function(e) {
-	return ""; /* some browsers will show this text, some won't. */
-}
+//window.onbeforeunload = function(e) {
+//	return ""; /* some browsers will show this text, some won't. */
+//}

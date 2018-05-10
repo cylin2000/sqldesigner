@@ -10,12 +10,17 @@ SQL.Map = function(owner) {
 	this.dom.port = OZ.DOM.elm("div",{className:"port", zIndex:1});
 	this.dom.container.appendChild(this.dom.port);
 	this.sync = this.sync.bind(this);
+
+	this.board = document.getElementById('board'); //the board container of minimap
 	
 	this.flag = false;
 	this.sync();
 	
-	OZ.Event.add(window, "resize", this.sync);
-	OZ.Event.add(window, "scroll", this.sync);
+	//OZ.Event.add(window, "resize", this.sync);
+	//OZ.Event.add(window, "scroll", this.sync);
+	OZ.Event.add(this.board, 'resize', this.sync);
+	OZ.Event.add(this.board, 'scroll', this.sync);
+
 	OZ.Event.add(this.dom.container, "mousedown", this.down.bind(this));
 	OZ.Event.add(this.dom.container, "touchstart", this.down.bind(this));
 	OZ.Event.add(this.dom.container, "touchmove", OZ.Event.prevent);
@@ -74,8 +79,8 @@ SQL.Map.prototype.move = function(e) { /* mousemove */
 	var top = this.t / coefY;
 	
 	if (OZ.webkit) {
-		document.body.scrollLeft = Math.round(left);
-		document.body.scrollTop = Math.round(top);
+		this.board.scrollLeft = Math.round(left);
+		this.board.scrollTop = Math.round(top);
 	} else {
 		document.documentElement.scrollLeft = Math.round(left);
 		document.documentElement.scrollTop = Math.round(top);
@@ -92,8 +97,11 @@ SQL.Map.prototype.up = function(e) { /* mouseup */
 }
 
 SQL.Map.prototype.sync = function() { /* when window changes, adjust map */
-	var dims = OZ.DOM.win();
-	var scroll = OZ.DOM.scroll();
+	//var dims = OZ.DOM.win();
+	//var scroll = OZ.DOM.scroll();
+	var dims = [this.board.clientWidth,this.board.clientHeight];
+	var scroll = [this.board.scrollLeft,this.board.scrollTop];
+
 	var scaleX = this.width / this.owner.width;
 	var scaleY = this.height / this.owner.height;
 

@@ -162,6 +162,8 @@ SQL.Table.prototype.redraw = function() {
 
 	this.width = this.dom.container.offsetWidth;
 	this.height = this.dom.container.offsetHeight;
+
+	this.board = document.getElementById('board'); //the board container of minimap
 	
 	var rs = this.getRelations();
 	for (var i=0;i<rs.length;i++) { rs[i].redraw(); }
@@ -229,8 +231,8 @@ SQL.Table.prototype.down = function(e) { /* mousedown - start drag */
 		}
 	}
 	
-	this.documentMove = OZ.Event.add(document, moveEvent, this.move.bind(this));
-	this.documentUp = OZ.Event.add(document, upEvent, this.up.bind(this));
+	this.documentMove = OZ.Event.add(this.board, moveEvent, this.move.bind(this));
+	this.documentUp = OZ.Event.add(this.board, upEvent, this.up.bind(this));
 }
 
 SQL.Table.prototype.toXML = function() {
