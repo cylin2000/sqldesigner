@@ -31,7 +31,7 @@ SQL.TableManager = function(owner) {
 	
 	this.save = this.save.bind(this);
 	
-	OZ.Event.add("area", "click", this.click.bind(this));
+	//OZ.Event.add("area", "click", this.click.bind(this));
 	OZ.Event.add(this.dom.addtable, "click", this.preAdd.bind(this));
 	OZ.Event.add(this.dom.removetable, "click", this.remove.bind(this));
 	OZ.Event.add(this.dom.cleartables, "click", this.clear.bind(this));
@@ -40,6 +40,19 @@ SQL.TableManager = function(owner) {
 	OZ.Event.add(this.dom.edittable, "click", this.edit.bind(this));
 	OZ.Event.add(this.dom.tablekeys, "click", this.keys.bind(this));
 	OZ.Event.add(document, "keydown", this.press.bind(this));
+
+	$("#area").click(this.clickarea.bind(this));
+	$("#mn-reset-position").click(this.owner.alignTables.bind(this.owner));
+
+	var owner = this.owner;
+	$("#mn-new-table").click(function(){
+		var x = 50;
+		var y = 50;
+		newtable = owner.addTable(_("newtable"),x,y);
+		var r = newtable.addRow("id",{ai:true});
+		var k = newtable.addKey("PRIMARY","");
+		k.addRow(r);
+	})
 
 	this.dom.container.parentNode.removeChild(this.dom.container);
 }
@@ -100,7 +113,7 @@ SQL.TableManager.prototype.processSelection = function() {
 
 SQL.TableManager.prototype.selectRect = function(x,y,width,height) { /* select all tables intersecting a rectangle */
 
-	console.log({x:x,y:y,width:width,height,height});
+	//console.log({x:x,y:y,width:width,height,height});
 	x = x - $('#board').offset().left;
 	y = y - $('#board').offset().top;
 
@@ -121,7 +134,7 @@ SQL.TableManager.prototype.selectRect = function(x,y,width,height) { /* select a
 	this.processSelection();
 }
 
-SQL.TableManager.prototype.click = function(e) { /* finish adding new table */
+SQL.TableManager.prototype.clickarea = function(e) { /* finish adding new table */
 	var newtable = false;
 	if (this.adding) {
 		this.adding = false;

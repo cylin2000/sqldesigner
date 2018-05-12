@@ -60,6 +60,27 @@ var SQL = {
 	}
 }
 
-//window.onbeforeunload = function(e) {
-//	return ""; /* some browsers will show this text, some won't. */
-//}
+window.onunload = function(e) {
+
+}
+
+window.onload = function(e){
+	// var key = 'sql_designer_xml';
+	// var xml = localStorage.getItem(key);
+	// try {
+	// 	if (window.DOMParser) {
+	// 		var parser = new DOMParser();
+	// 		var xmlDoc = parser.parseFromString(xml, "text/xml");
+	// 		SQL.Designer.io.fromXML(xmlDoc);
+	// 	} else if (window.ActiveXObject || "ActiveXObject" in window) {
+	// 		var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+	// 		xmlDoc.loadXML(xml);
+	// 		SQL.Designer.io.fromXML(xmlDoc);
+	// 	}
+
+	// } catch(e) { 
+
+	// 	return;
+	// }
+
+}

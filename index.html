@@ -46,16 +46,16 @@
 					<a href="#" class="easyui-menubutton" data-options="menu: '#mm-about', hasDownArrow: false">About</a>
 				</div>
 				<div id="mm-file" style="width:100px;">
-					<div data-options="iconCls:'icon_folder'">Load...</div>
-					<div data-options="iconCls:'icon_disk'">Save...</div>
+					<div id="mn-load" data-options="iconCls:'icon_folder'">Load...</div>
+					<div id="mn-save" data-options="iconCls:'icon_disk'">Save...</div>
 				</div>
 				<div id="mm-table" style="width:150px;">
-					<div data-options="iconCls:'icon_table_add'">New Table</div>
-					<div data-options="iconCls:'icon_table_go'">New Quick Table</div>
-					<div data-options="iconCls:'icon_table_key'">Set Table Keys</div>
-					<div data-options="iconCls:'icon_table_delete'">Delete Table</div>
+					<div id="mn-new-table" data-options="iconCls:'icon_table_add'">New Table</div>
+					<div id="mn-new-quick-table" data-options="iconCls:'icon_table_go'">New Quick Table</div>
+					<div id="mn-set-table-keys" data-options="iconCls:'icon_table_key'">Set Table Keys</div>
+					<div id="mn-delete-table" data-options="iconCls:'icon_table_delete'">Delete Table</div>
 					<div class="menu-sep"></div>
-					<div data-options="iconCls:'icon_table_multiple'">Reset Position</div>
+					<div id="mn-reset-position" data-options="iconCls:'icon_table_multiple'">Reset Position</div>
 				</div>
 				<div id="mm-column" style="width:150px;">
 					<div data-options="iconCls:'icon_table_row_insert'">New Column</div>
@@ -79,7 +79,7 @@
 				</div>
 		</div>
 	</div>
-	<div data-options="region:'east',split:true" title="Property" style="width:250px;"></div>
+	<div data-options="region:'east',split:true" title="Properties" style="width:250px;"></div>
 	<div data-options="region:'west',split:true" title="Database" style="width:250px;"></div>
 	<div data-options="region:'center'" title="Model" id="board">
 		<div id="area" ></div>

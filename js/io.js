@@ -56,6 +56,12 @@ SQL.IO = function(owner) {
 	OZ.Event.add(this.dom.serverlist, "click", this.serverlist.bind(this));
 	OZ.Event.add(this.dom.serverimport, "click", this.serverimport.bind(this));
 	OZ.Event.add(document, "keydown", this.press.bind(this));
+
+
+	// bind menu events
+	
+
+
 	this.build();
 }
 
