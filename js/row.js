@@ -47,6 +47,7 @@ SQL.Row.prototype.select = function() {
 	if (this.selected) { return; }
 	this.selected = true;
 	this.redraw();
+	SQL.publish("rowselect",this);
 }
 
 SQL.Row.prototype.deselect = function() {
@@ -54,6 +55,7 @@ SQL.Row.prototype.deselect = function() {
 	this.selected = false;
 	this.redraw();
 	this.collapse();
+	SQL.publish("rowdeselect",this);
 }
 
 SQL.Row.prototype.setTitle = function(t) {

@@ -32,6 +32,7 @@
 	<script src="js/window.js"></script>
 	<script src="js/options.js"></script>
 	<script src="js/sqldesigner.js"></script>
+	<script src="js/ui.js"></script>
 </head>
 
 <body class="easyui-layout">
@@ -79,15 +80,34 @@
 				</div>
 		</div>
 	</div>
-	<div data-options="region:'east',split:true" title="Properties" style="width:250px;"></div>
-	<div data-options="region:'west',split:true" title="Database" style="width:250px;"></div>
+	<div data-options="region:'east',split:true" title="Properties" style="width:300px;">
+		<table id="pg-table" class="easyui-propertygrid" style="width:100%" data-options="
+					url:'js/propertygrid_table.json',
+					title:'Table Properties',
+	                method:'get',
+	                showGroup:true,
+	                scrollbarSize:0
+	            ">
+		</table>
+		<table id="pg-column" class="easyui-propertygrid" style="width:100%" data-options="
+					url:'js/propertygrid_column.json',
+					title:'Column Properties',
+	                method:'get',
+	                showGroup:true,
+	                scrollbarSize:0
+	            ">
+	    </table>
+	</div>
+	<div data-options="region:'west',split:true" title="Database" style="width:250px;">
+		<ul class="easyui-tree" data-options="url:'js/tree.json',method:'get'"></ul>
+	</div>
 	<div data-options="region:'center'" title="Model" id="board">
 		<div id="area" ></div>
 		<div id="minimap"></div>
 	</div>
 
 	<div id="controls">
-		<div id="bar">
+		<div id="bar" style="display: none;">
 			<div id="toggle"></div>
 			<input type="button" id="saveload" />
 

@@ -101,6 +101,7 @@ SQL.Table.prototype.select = function() {
 	OZ.DOM.addClass(this.dom.container, "selected");
 	OZ.DOM.addClass(this.dom.mini, "mini_selected");
 	this.redraw();
+	SQL.publish("tableselect",this);
 }
 
 SQL.Table.prototype.deselect = function() { 
@@ -109,6 +110,7 @@ SQL.Table.prototype.deselect = function() {
 	OZ.DOM.removeClass(this.dom.container, "selected");
 	OZ.DOM.removeClass(this.dom.mini, "mini_selected");
 	this.redraw();
+	SQL.publish("tabledeselect",this);
 }
 
 SQL.Table.prototype.addRow = function(title, data) {

@@ -1,0 +1,27 @@
+[{
+    "id":1,
+    "text":"DemoDB",
+    "iconCls":"icon_database",
+    "children":[{
+        "text":"Table1",
+        "iconCls" : "icon_table",
+        "children":[{
+            "text":"Field1",
+            "iconCls" : "icon_table_column"
+        },{
+            "text":"Field2",
+            "iconCls" : "icon_table_column"
+        }]
+    },{
+        "text":"Table2",
+        "iconCls" : "icon_table",
+        "state":"open",
+        "children":[{
+            "text":"Field3",
+            "iconCls" : "icon_table_column"
+        },{
+            "text":"Field4",
+            "iconCls" : "icon_table_column"
+        }]
+    }]
+}]

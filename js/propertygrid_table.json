@@ -1,0 +1,9 @@
+{"total":7,"rows":[
+	{"name":"Name","value":"","group":"Database","editor":"text"},
+    {"name":"Description","value":"","group":"Database","editor":"text"},
+	{"name":"Display Name","value":"","group":"UI","editor":"text"},    
+    {"name":"Model","value":"","group":"UI","editor":"text"},
+    {"name":"Order By","value":"","group":"UI","editor":"text"},
+    {"name":"Primary Key","value":"","group":"UI","editor":"text"},
+    {"name":"Column Prefix","value":"","group":"UI","editor":"text"}
+]}

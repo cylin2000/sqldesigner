@@ -1,0 +1,10 @@
+{"total":7,"rows":[
+	{"name":"Name","value":"","group":"Database","editor":"text"},
+    {"name":"Description","value":"","group":"Database","editor":"text"},
+	{"name":"Display Name","value":"","group":"UI","editor":"text"},    
+    {"name":"Width","value":"","group":"UI","editor":"text"},
+    {"name":"Align","value":"","group":"UI","editor":"text"},
+    {"name":"Search","value":"","group":"UI","editor":"text"},
+    {"name":"Editor","value":"","group":"UI","editor":"text"},
+    {"name":"Editor Extension","value":"","group":"UI","editor":"text"}
+]}
